@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpm4maq2x6d5"]
+
+[ext_resource type="Texture2D" uid="uid://bff0e16wasqu5" path="res://World/avatars-000326781000-exuweq-t500x500.jpg" id="1_pfxt7"]
+[ext_resource type="Script" path="res://World/Camera.gd" id="2_wpwil"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2000, 2000)
+
+[node name="Avatars-000326781000-exuweq-t500x500" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-1.99999, 2)
+scale = Vector2(4, 4)
+texture = ExtResource("1_pfxt7")
+centered = false
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+process_callback = 0
+script = ExtResource("2_wpwil")
