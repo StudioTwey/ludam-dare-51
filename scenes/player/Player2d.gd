@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed = 1000.0
-
+@export var health = 10
 func get_input():
 	velocity = Vector2.ZERO
 	
@@ -30,5 +30,13 @@ func get_input():
 
 func _physics_process(_delta):
 	get_input()
-	
 	move_and_slide()
+
+
+
+
+func _on_area_2d_area_entered(area):
+	print(health)
+	health = health - 1
+	if health == 0:
+		get_tree().reload_current_scene()
