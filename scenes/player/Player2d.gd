@@ -35,15 +35,8 @@ func _physics_process(_delta):
 
 
 
-
-
-
-
-
-
-
 func _on_area_2d_area_entered(area):
-	health = health - 1
 	print(health)
+	health = health - 1
 	if health == 0:
 		get_tree().reload_current_scene()

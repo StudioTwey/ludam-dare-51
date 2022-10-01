@@ -12,6 +12,7 @@ texture = ExtResource("1_3lk2i")
 script = ExtResource("2_rjaw8")
 
 [node name="EnemyArea" type="Area2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="EnemyArea"]
 position = Vector2(-0.25, -1)
