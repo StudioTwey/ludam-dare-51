@@ -1,5 +1,4 @@
 extends Sprite2D 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,4 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_enemy_area_area_entered(area):
-	queue_free()
+	if area is not self:
+		queue_free()
