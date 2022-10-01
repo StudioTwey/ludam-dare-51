@@ -8,6 +8,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var dir = (get_viewport().get_mouse_position() - position).normalized()
+	var dir = (Utils.get_player_pos()- position).normalized()
 	var motion = dir * 100 * delta
 	position += motion	
