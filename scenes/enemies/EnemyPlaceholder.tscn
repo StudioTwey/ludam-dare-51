@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/enemies/Enemy.gd" id="2_rjaw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbahb"]
-size = Vector2(117, 120)
+size = Vector2(119.5, 120)
 
 [node name="EnemyPlaceholder" type="Sprite2D"]
 self_modulate = Color(1, 0, 0, 1)
@@ -14,7 +14,7 @@ script = ExtResource("2_rjaw8")
 [node name="EnemyArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="EnemyArea"]
-position = Vector2(1, -1)
+position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_xbahb")
 
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]
