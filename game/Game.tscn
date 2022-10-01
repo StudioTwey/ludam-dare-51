@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bff0e16wasqu5" path="res://game/avatars-000326781000-exuweq-t500x500.jpg" id="1_6jhq5"]
 [ext_resource type="PackedScene" uid="uid://dp1qen4jep0pa" path="res://scenes/enemies/enemy_emitter/EnemyEmitter.tscn" id="3_hbgpa"]
 [ext_resource type="PackedScene" uid="uid://bqeouxfcr15j4" path="res://scenes/enemies/EnemyPlaceholder.tscn" id="4_e1o8c"]
-[ext_resource type="PackedScene" uid="uid://d0qjrwbn5rw2u" path="res://scenes/player/Player.tscn" id="4_rtcjm"]
+[ext_resource type="PackedScene" uid="uid://dumrd4wsf3sgq" path="res://scenes/player/Player2d.tscn" id="4_g2jxl"]
 
 [node name="Game" type="Node2D"]
 
@@ -18,17 +18,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_6jhq5")
 centered = false
 
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-zoom = Vector2(0.6, 0.6)
-process_callback = 0
-
 [node name="EnemyEmitter" parent="." instance=ExtResource("3_hbgpa")]
 enemies_to_spawn = [ExtResource("4_e1o8c")]
 
-[node name="Player" parent="." instance=ExtResource("4_rtcjm")]
-
-[node name="CameraFollow" parent="Player" index="0"]
-remote_path = NodePath("../../Camera")
-
-[editable path="Player"]
+[node name="Player" parent="." instance=ExtResource("4_g2jxl")]

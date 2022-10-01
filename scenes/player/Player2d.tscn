@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dumrd4wsf3sgq"]
+
+[ext_resource type="Texture2D" uid="uid://cc14l3lttpm2r" path="res://icon.svg" id="1_tntoe"]
+[ext_resource type="Script" path="res://scenes/player/Player2d.gd" id="1_xelcf"]
+[ext_resource type="Script" path="res://scenes/player/Attack.gd" id="3_xsik1"]
+
+[node name="CharacterBody2d" type="CharacterBody2D"]
+script = ExtResource("1_xelcf")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_tntoe")
+
+[node name="Camera2d" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(0.6, 0.6)
+
+[node name="AttackOrigin" type="Marker2D" parent="."]
+script = ExtResource("3_xsik1")
