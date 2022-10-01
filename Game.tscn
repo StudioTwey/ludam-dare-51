@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0pfwdg3xey7c"]
+
+[ext_resource type="PackedScene" uid="uid://dp1qen4jep0pa" path="res://scenes/enemies/enemy_emitter/EnemyEmitter.tscn" id="1_kbxiu"]
+[ext_resource type="PackedScene" uid="uid://bqeouxfcr15j4" path="res://scenes/enemies/EnemyPlaceholder.tscn" id="2_jo0b2"]
+
+[node name="Game" type="Node2D"]
+
+[node name="EnemyEmitter" parent="." instance=ExtResource("1_kbxiu")]
+enemies_to_spawn = [ExtResource("2_jo0b2")]

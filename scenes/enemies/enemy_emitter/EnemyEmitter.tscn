@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp1qen4jep0pa"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_emitter/EnemyEmitter.gd" id="1_65skw"]
+
+[node name="EnemyEmitter" type="Node2D"]
+script = ExtResource("1_65skw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
