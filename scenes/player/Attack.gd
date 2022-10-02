@@ -10,6 +10,7 @@ func get_input():
   look_at(get_global_mouse_position())
   if Input.is_action_pressed("ui_accept"):
     current_time = 0
+    AudioManager.play_sound(0)
     attack()
     
 func attack():

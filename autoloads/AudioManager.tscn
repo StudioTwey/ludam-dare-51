@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn70y1k2wey67"]
+[gd_scene load_steps=5 format=3 uid="uid://cn70y1k2wey67"]
 
 [ext_resource type="Script" path="res://autoloads/AudioManager.gd" id="1_xtf08"]
 [ext_resource type="AudioStream" uid="uid://ywr7ddkmtmak" path="res://assets/sound/bg_music.mp3" id="2_fbh4r"]
+[ext_resource type="AudioStream" uid="uid://bkor1ayf03g8c" path="res://assets/sound/sword.wav" id="2_i7tf8"]
+[ext_resource type="AudioStream" uid="uid://dfgy74k5v3ysd" path="res://assets/sound/hit_sound.mp3" id="3_o4rfl"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_xtf08")
+sounds = [ExtResource("2_i7tf8"), ExtResource("3_o4rfl")]
 
 [node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_fbh4r")
@@ -14,3 +17,6 @@ autoplay = true
 current = true
 
 [node name="SoundEffects" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10000
+
+[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

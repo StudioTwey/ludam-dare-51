@@ -9,7 +9,7 @@ func _ready() -> void:
   randomize()
   print(get_viewport().get_visible_rect())
   
-func spawn_enemies(number_of_enemies) -> void:
+func spawn_enemies(number_of_enemies: int) -> void:
   # Get Player postion + camera view port
   for i in number_of_enemies:
     var player_pos = Utils.get_player_pos()
