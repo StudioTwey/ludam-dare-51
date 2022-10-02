@@ -11,7 +11,6 @@ func _ready() -> void:
   
 func spawn_enemies(number_of_enemies: int) -> void:
   # Get Player postion + camera view port
-#  for i in number_of_enemies:
   for i in number_of_enemies:
     var player_pos = Utils.get_player_pos()
     var enemy_to_spawn = Utils.choose_random_from_array(enemies_to_spawn)
