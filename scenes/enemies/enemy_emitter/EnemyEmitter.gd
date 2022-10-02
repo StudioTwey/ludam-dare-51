@@ -11,7 +11,8 @@ func _ready() -> void:
   
 func spawn_enemies(number_of_enemies) -> void:
   # Get Player postion + camera view port
-  for i in number_of_enemies:
+#  for i in number_of_enemies:
+  for i in 10:
     var player_pos = Utils.get_player_pos()
     var enemy_to_spawn = Utils.choose_random_from_array(enemies_to_spawn)
     # Spawn enemy(s) outside of the viewport - 135px radius
