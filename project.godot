@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://autoloads/AudioManager.tscn"
+GameManager="*res://autoloads/GameManager.tscn"
 Utils="*res://autoloads/Utils.gd"
+AudioManager="*res://autoloads/AudioManager.tscn"
 
 [input]
 
