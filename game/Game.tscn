@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://coewgbwkt2a74"]
+[gd_scene load_steps=6 format=3 uid="uid://coewgbwkt2a74"]
 
-[ext_resource type="Texture2D" uid="uid://bff0e16wasqu5" path="res://game/avatars-000326781000-exuweq-t500x500.jpg" id="1_6jhq5"]
+[ext_resource type="Texture2D" uid="uid://bli7ucqlygai" path="res://assets/Tiles/floor_1.png" id="1_a45bn"]
+[ext_resource type="PackedScene" uid="uid://b7thtuslv04mt" path="res://scenes/enemies/BigDemon.tscn" id="3_472u1"]
 [ext_resource type="PackedScene" uid="uid://dp1qen4jep0pa" path="res://scenes/enemies/enemy_emitter/EnemyEmitter.tscn" id="3_hbgpa"]
-[ext_resource type="PackedScene" uid="uid://bqeouxfcr15j4" path="res://scenes/enemies/EnemyPlaceholder.tscn" id="4_e1o8c"]
 [ext_resource type="PackedScene" uid="uid://dumrd4wsf3sgq" path="res://scenes/player/Player2d.tscn" id="4_g2jxl"]
+[ext_resource type="PackedScene" uid="uid://cmylvy8o2r2s7" path="res://scenes/enemies/SmallDemon.tscn" id="4_on5q4"]
 
 [node name="Game" type="Node2D"]
 
@@ -13,12 +14,11 @@
 motion_mirroring = Vector2(2000, 2000)
 
 [node name="Avatars-000326781000-exuweq-t500x500" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1.99999, 2)
-scale = Vector2(4, 4)
-texture = ExtResource("1_6jhq5")
+scale = Vector2(130, 130)
+texture = ExtResource("1_a45bn")
 centered = false
 
 [node name="EnemyEmitter" parent="." instance=ExtResource("3_hbgpa")]
-enemies_to_spawn = [ExtResource("4_e1o8c")]
+enemies_to_spawn = [ExtResource("3_472u1"), ExtResource("4_on5q4")]
 
 [node name="Player" parent="." instance=ExtResource("4_g2jxl")]
