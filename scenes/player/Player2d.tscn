@@ -1,17 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://dumrd4wsf3sgq"]
+[gd_scene load_steps=13 format=3 uid="uid://dumrd4wsf3sgq"]
 
-[ext_resource type="Texture2D" uid="uid://cc14l3lttpm2r" path="res://icon.svg" id="1_tntoe"]
 [ext_resource type="Script" path="res://scenes/player/Player2d.gd" id="1_xelcf"]
 [ext_resource type="Script" path="res://scenes/player/Attack.gd" id="3_xsik1"]
+[ext_resource type="Texture2D" uid="uid://b77ko6bxcugln" path="res://assets/Player/Knight/Idle/knight_f_idle_anim_f0.png" id="4_173uq"]
+[ext_resource type="Texture2D" uid="uid://d16dseci73fe4" path="res://assets/Player/Knight/Idle/knight_f_idle_anim_f1.png" id="5_wv5os"]
+[ext_resource type="Texture2D" uid="uid://ujefeungkdh" path="res://assets/Player/Knight/Idle/knight_f_idle_anim_f2.png" id="6_d3mdl"]
+[ext_resource type="Texture2D" uid="uid://dh0jhmmhoc7eq" path="res://assets/Player/Knight/Run/knight_f_run_anim_f0.png" id="6_g3sxy"]
+[ext_resource type="Texture2D" uid="uid://cwg4s366pbley" path="res://assets/Player/Knight/Run/knight_f_run_anim_f1.png" id="7_ugiw4"]
+[ext_resource type="Texture2D" uid="uid://daqqisiqdqrtn" path="res://assets/Player/Knight/Idle/knight_f_idle_anim_f3.png" id="7_w6bxt"]
+[ext_resource type="Texture2D" uid="uid://gqawkw8qcirs" path="res://assets/Player/Knight/Run/knight_f_run_anim_f2.png" id="8_wp8oi"]
+[ext_resource type="Texture2D" uid="uid://bcag87aljtgaf" path="res://assets/Player/Knight/Run/knight_f_run_anim_f3.png" id="9_8q5px"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phpvx"]
+animations = [{
+"frames": [ExtResource("4_173uq"), ExtResource("5_wv5os"), ExtResource("6_d3mdl"), ExtResource("7_w6bxt")],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [ExtResource("6_g3sxy"), ExtResource("7_ugiw4"), ExtResource("8_wp8oi"), ExtResource("9_8q5px")],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkpo"]
-size = Vector2(116, 119)
+size = Vector2(51, 69)
 
 [node name="CharacterBody2d" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_xelcf")
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
-texture = ExtResource("1_tntoe")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+frames = SubResource("SpriteFrames_phpvx")
+animation = &"run"
+playing = true
 
 [node name="Camera2d" type="Camera2D" parent="."]
 current = true
@@ -23,7 +47,7 @@ script = ExtResource("3_xsik1")
 [node name="Area2d" type="Area2D" parent="."]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(0, -0.5)
+position = Vector2(3.5, 31.5)
 shape = SubResource("RectangleShape2D_dqkpo")
 
 [connection signal="area_entered" from="Area2d" to="." method="_on_area_2d_area_entered"]

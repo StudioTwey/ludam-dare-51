@@ -1,23 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5a7ddw1ph5kv"]
 
 [ext_resource type="Script" path="res://scenes/player/Projectile.gd" id="1_6ijgp"]
-[ext_resource type="Texture2D" uid="uid://cc14l3lttpm2r" path="res://icon.svg" id="2_j1xhn"]
+[ext_resource type="Texture2D" uid="uid://d085wcs4gyu06" path="res://assets/Player/Knight/Weapons/weapon_regular_sword.png" id="2_10xwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cskf5"]
-size = Vector2(60, 60)
+size = Vector2(96, 28)
 
 [node name="Attack" type="Area2D"]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_6ijgp")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_j1xhn")
+scale = Vector2(5, 5)
+texture = ExtResource("2_10xwc")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_cskf5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
