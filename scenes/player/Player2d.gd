@@ -8,21 +8,21 @@ func get_input():
   
   if Input.is_action_pressed("move_right"):
     velocity.x += 1
-    #$Sprite.play("run")
-    #$Sprite.flip_h = false
+    $Sprite.play("run")
+    $Sprite.flip_h = false
   if Input.is_action_pressed("move_left"):
     velocity.x -= 1
-    #$Sprite.play("run")
-    #$Sprite.flip_h = true
+    $Sprite.play("run")
+    $Sprite.flip_h = true
   if Input.is_action_pressed("move_down"):
     velocity.y += 1
-    #$Sprite.play("run")
+    $Sprite.play("run")
   if Input.is_action_pressed("move_up"):
     velocity.y -= 1
-    #$Sprite.play("run")
+    $Sprite.play("run")
   
-  #if velocity.y == 0 and velocity.x == 0:
-  # $Sprite.play("idle")
+  if velocity.y == 0 and velocity.x == 0:
+    $Sprite.play("idle")
   # Stops diagnals from being faster
   velocity = velocity.normalized() * speed
 

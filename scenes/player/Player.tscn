@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://5qh7684puu3u"]
+
+[ext_resource type="Texture2D" uid="uid://cc14l3lttpm2r" path="res://game/icon.svg" id="1_e2tnu"]
+
+[sub_resource type="GDScript" id="GDScript_22yli"]
+script/source = "extends Sprite2D
+
+@export var BASE_SPEED := 250
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+  pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+  var velocity = Vector2.ZERO # The player's movement vector.
+  if Input.is_action_pressed(\"move_right\"):
+    velocity.x += BASE_SPEED
+  if Input.is_action_pressed(\"move_left\"):
+    velocity.x -= BASE_SPEED
+  if Input.is_action_pressed(\"move_down\"):
+    velocity.y += BASE_SPEED
+  if Input.is_action_pressed(\"move_up\"):
+    velocity.y -= BASE_SPEED
+  position += velocity * delta
+"
+
+[node name="Player" type="Sprite2D" groups=["player"]]
+texture = ExtResource("1_e2tnu")
+script = SubResource("GDScript_22yli")
+BASE_SPEED = 600
+
+[node name="CameraFollow" type="RemoteTransform2D" parent="."]
+
+[node name="Area2d" type="Area2D" parent="."]

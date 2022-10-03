@@ -1,22 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqeouxfcr15j4"]
+[gd_scene load_steps=8 format=3 uid="uid://bqeouxfcr15j4"]
 
-[ext_resource type="Texture2D" uid="uid://cc14l3lttpm2r" path="res://icon.svg" id="1_3lk2i"]
+[ext_resource type="Texture2D" uid="uid://dwdx8tck0f1xx" path="res://assets/Enemy/Big_Demon/run/big_demon_run_anim_f0.png" id="1_lsd6c"]
+[ext_resource type="Texture2D" uid="uid://dseaugqukdv8i" path="res://assets/Enemy/Big_Demon/run/big_demon_run_anim_f1.png" id="2_1at32"]
 [ext_resource type="Script" path="res://scenes/enemies/Enemy.gd" id="2_rjaw8"]
+[ext_resource type="Texture2D" uid="uid://df32n35clid76" path="res://assets/Enemy/Big_Demon/run/big_demon_run_anim_f2.png" id="3_hh5by"]
+[ext_resource type="Texture2D" uid="uid://sxfmvjxbv72r" path="res://assets/Enemy/Big_Demon/run/big_demon_run_anim_f3.png" id="4_jx1t1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0iry"]
+animations = [{
+"frames": [ExtResource("1_lsd6c"), ExtResource("2_1at32"), ExtResource("3_hh5by"), ExtResource("4_jx1t1")],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbahb"]
-size = Vector2(119.5, 120)
+size = Vector2(15.8, 25.4)
 
-[node name="EnemyPlaceholder" type="Sprite2D"]
-self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_3lk2i")
+[node name="EnemyPlaceholder" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
+frames = SubResource("SpriteFrames_k0iry")
+animation = &"run"
+playing = true
 script = ExtResource("2_rjaw8")
 
 [node name="EnemyArea" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="EnemyArea"]
-position = Vector2(-0.25, -1)
+position = Vector2(0.0999999, 2.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xbahb")
 
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]
