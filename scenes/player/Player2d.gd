@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+signal health_depleted
+
 
 @export var speed = 1000.0
 @export var health = 10
+var exp = 0
+
 func get_input():
   velocity = Vector2.ZERO
   
@@ -26,17 +30,25 @@ func get_input():
   # Stops diagnals from being faster
   velocity = velocity.normalized() * speed
 
-
-
+func gain_exp():
+  exp += 1
+  print(exp)
+  
+  if exp >= 10:
+    print("level up!")
+  
+func take_damage():
+  health -= 1
+  
+  if health <= 0:
+    print("DEAD")
+    emit_signal("health_depleted")
+  
 func _physics_process(_delta):
   get_input()
   move_and_slide()
 
 
 
-
-func _on_area_2d_area_entered(area):
-  print(health)
-  health = health - 1
-  if health == 0:
-    get_tree().reload_current_scene()
+func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+  take_damage()

@@ -2,13 +2,14 @@ extends Area2D
 
 @export var speed = 1500
 @export var max_time = 0.5
+@export var damage = 1
 
 func start_timer():
   var timer = Timer.new()
   timer.name = "Timer"
   timer.one_shot = true
   timer.wait_time = max_time
-  timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+  timer.connect("timeout", _on_timer_timeout)
   add_child(timer)
   timer.start()
   

@@ -23,10 +23,10 @@ frames = SubResource("SpriteFrames_k0iry")
 animation = &"run"
 playing = true
 script = ExtResource("5_rffas")
+health = 3
 
 [node name="EnemyArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="EnemyArea"]
 position = Vector2(0.0999999, 2.5)

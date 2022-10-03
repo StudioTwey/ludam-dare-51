@@ -25,8 +25,7 @@ playing = true
 script = ExtResource("5_vyjvr")
 
 [node name="EnemyArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="EnemyArea"]
 position = Vector2(0.5, 1.6)
