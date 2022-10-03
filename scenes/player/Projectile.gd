@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 1500
 @export var max_time = 0.5
+@export var damage = 1
 
 func start_timer():
   var timer = Timer.new()

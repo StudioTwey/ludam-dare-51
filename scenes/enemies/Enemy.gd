@@ -6,7 +6,8 @@ signal enemy_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-  pass
+  var player = get_node("/root/Game/Player")
+  self.connect("enemy_died", Callable(player, "gain_exp"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,8 +23,7 @@ func _process(delta: float) -> void:
 
 func _on_enemy_area_area_entered(area):
   AudioManager.play_sound(1)
-  
-  health -= 1
+  health -= area.damage
   
   if health < 3:
     self.modulate = Color(1.5, 1.0, 1.0, 0.8)
