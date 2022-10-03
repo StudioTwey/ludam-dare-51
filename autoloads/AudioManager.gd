@@ -12,8 +12,6 @@ func play_sound(sound: int) -> void:
   sound_effect_player.stream = sound_to_play
   sound_effect_player.play()
 
-func _on_bg_music_finished() -> void:
-  $BgMusic.play()
 
 ### Audio Dictonary
 #0 Sword swoosh

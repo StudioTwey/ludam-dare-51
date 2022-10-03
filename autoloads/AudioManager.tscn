@@ -18,5 +18,3 @@ current = true
 
 [node name="SoundEffects" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10000
-
-[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
