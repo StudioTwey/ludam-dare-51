@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt11yf8t1fssg"]
+[gd_scene load_steps=8 format=3 uid="uid://bt11yf8t1fssg"]
 
+[ext_resource type="Script" path="res://scenes/UI/Start Screen.gd" id="1_atxkd"]
 [ext_resource type="Texture2D" uid="uid://xjpyjhu7hjwo" path="res://scenes/UI/Start button1.png" id="1_s6gns"]
 [ext_resource type="FontFile" uid="uid://brtvrcen3rxhg" path="res://scenes/UI/Dragonlands-KeZ7.ttf" id="1_vklg6"]
 [ext_resource type="Texture2D" uid="uid://doah68dablf2g" path="res://scenes/UI/Start Button 2.png" id="2_l70r6"]
@@ -18,8 +19,9 @@ offset_right = -63.0
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_atxkd")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Startbutton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 266.0
 offset_top = 93.0
@@ -30,7 +32,7 @@ texture_pressed = ExtResource("2_l70r6")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="Endbutton" type="TextureButton" parent="."]
 layout_mode = 1
 offset_left = 270.0
 offset_top = 325.0
@@ -73,3 +75,6 @@ light_mask = 0
 position = Vector2(435, 613)
 scale = Vector2(14.127, 7.95786)
 texture = ExtResource("6_uhfgj")
+
+[connection signal="pressed" from="Startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="pressed" from="Endbutton" to="." method="_on_endbutton_pressed"]
