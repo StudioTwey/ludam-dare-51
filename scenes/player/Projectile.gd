@@ -8,7 +8,7 @@ func start_timer():
   timer.name = "Timer"
   timer.one_shot = true
   timer.wait_time = max_time
-  timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+  timer.connect("timeout", _on_timer_timeout)
   add_child(timer)
   timer.start()
   
