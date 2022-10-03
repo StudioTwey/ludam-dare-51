@@ -15,6 +15,3 @@ autoplay = true
 
 [node name="Listener" type="AudioListener2D" parent="."]
 current = true
-
-[node name="SoundEffects" type="AudioStreamPlayer2D" parent="."]
-max_polyphony = 10000

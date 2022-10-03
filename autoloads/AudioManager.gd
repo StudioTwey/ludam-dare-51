@@ -1,7 +1,9 @@
 extends Node2D
 
 @export var sounds: Array[AudioStream] = []
-@onready var sound_effect_player = $SoundEffects 
+#@onready var sound_effect_player = $SoundEffects
+
+var sound_effect_player = preload("res://autoloads/SoundEffects.tscn")
 
 func _ready() -> void:
   print('loading audio...')
@@ -9,8 +11,10 @@ func _ready() -> void:
 func play_sound(sound: int) -> void:
   # This is really bad, but will work for now
   var sound_to_play = sounds[sound]
-  sound_effect_player.stream = sound_to_play
-  sound_effect_player.play()
+  var player = sound_effect_player.instantiate()
+  add_child(player)
+  player.stream = sound_to_play
+  player.play()
 
 
 ### Audio Dictonary
